@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+generator jsonSchema {
+  provider = "prisma-json-schema-generator"
+}
+
+generator prismaClassGenerator {
+    provider = "prisma-class-generator"
+    output = "./gen"
+}
+generator erd {
+  provider = "prisma-erd-generator"
+}
+generator custom_models {
+  provider       = "prisma-custom-models-generator"
+  behavior       = "WRAP"
+}
+generator class_validator {
+  provider = "prisma-class-validator-generator"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model emailadresses {
+  id     BigInt  @id @default(autoincrement())
+  email  String? @db.VarChar(50)
+  userid Int?
+  users  users?  @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "emailadresses_fk")
+}
+
+model phonenumbers {
+  id          BigInt  @id @default(autoincrement())
+  description String? @db.VarChar(50)
+  number      String? @db.VarChar(16)
+  userid      Int?
+  users       users?  @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "phonenumbers_fk")
+}
+
+model users {
+  id            Int             @id @default(autoincrement())
+  name          String?         @db.VarChar
+  surname       String?         @db.VarChar
+  note          String?         @db.VarChar
+  company       String?         @db.VarChar
+  emailadresses emailadresses[]
+  phonenumbers  phonenumbers[]
+}

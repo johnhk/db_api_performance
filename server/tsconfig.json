@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "sourceMap": true,
+      "incremental": true,
+      "moduleResolution": "node",
+      "target": "es5",
+      "esModuleInterop": true,
+  },
+  "exclude": ["**/node_modules", "_build", "./prisma/generated"],
+}

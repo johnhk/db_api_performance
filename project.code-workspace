@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"name": "project",
+			"path": "project"
+		},
+		{
+			"name": "Docker",
+			"path": "Docker"
+		},
+		{
+			"name": "server",
+			"path": "server"
+		},
+		{
+			"name": "api",
+			"path": "api"
+		},
+		{
+			"name": "db",
+			"path": "db"
+		},
+		{
+			"name": "mock",
+			"path": "mock"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+				"driver": "PostgreSQL",
+				"name": "db_api_performance",
+				"database": "postgres",
+				"username": "pgAdmin",
+				"password": "mitpassword"
+			}
+		]
+	}
+}
